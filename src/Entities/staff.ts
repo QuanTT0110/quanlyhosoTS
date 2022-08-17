@@ -5,7 +5,7 @@ import {
     BeforeUpdate,
     Unique,
   } from "typeorm";
-import BaseModel from "./Base";
+import BaseModel from "./base";
 import * as bcrypt from "bcryptjs";
 
 @Entity("Staff")

@@ -1,7 +1,7 @@
 import services from "../Services";
 import { ICreateStaff, IQueryStaff } from "../Models/models";
 import { Request, Response } from "express";
-import * as response from "../Response"
+import response from "../response"
 
 export const create = async (req: Request, res: Response) => {
     const staff : ICreateStaff = req.body as ICreateStaff;

@@ -1,2 +1,2 @@
-import * as Staff from "./staff-dao";
+import * as Staff from "./staff";
 export default {Staff};

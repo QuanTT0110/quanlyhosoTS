@@ -1,4 +1,4 @@
-import dao from "../DAOs";
+import dao from "../daos";
 import { ICreateStaff, IQueryStaff } from "../Models/models";
 
 export const isEmailExist = async (email: string) => {

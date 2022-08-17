@@ -1,5 +1,5 @@
 import { DataSource } from "typeorm";
-import Staff from "../Entities/staff"
+import Staff from "../entities/staff"
 
 export default class db {
     private static appDataSource : DataSource

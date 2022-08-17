@@ -1,9 +1,12 @@
 import { Request, Response, NextFunction } from "express";
 import { check, validationResult, buildCheckFunction } from "express-validator";
-import responseMsg from "../Message";
-import AppError from "../Middleware/app-error";
+import responseMsg from "../message";
+import AppError from "../middleware/app-error";
+
 const checkUUIDParamsAndRequest = buildCheckFunction([
     "params",
+    "query",
+    "body"
 ]);
 const checkQuery = buildCheckFunction(["query"]);
 const checkBody = buildCheckFunction(["body"]);

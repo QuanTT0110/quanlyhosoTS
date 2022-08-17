@@ -1,6 +1,6 @@
-import { Staff } from "../Entities";
+import { Staff } from "../entities";
 import { ICreateStaff, IQueryStaff } from "../Models/models";
-import db from "../Config/data-source";
+import db from "../config/data-source";
 import { Brackets } from "typeorm";
 
 export const findByEmail = async (email: string): Promise<Staff | null> => {
@@ -24,11 +24,13 @@ export const create = async (staff: ICreateStaff): Promise<Staff | null> => {
     const data = await db.getStaffRepository().save(
         db.getStaffRepository().create(staff)
     );
+
     return data;
 };
 
 export const update = async (staff: ICreateStaff): Promise<Staff | null> => {
     const data = await db.getStaffRepository().save(staff);
+
     return data;
 };
 
@@ -45,5 +47,6 @@ export const getList = async (query: IQueryStaff): Promise<Staff[]> => {
             })
         )
     }
+
     return await queryString.limit(query.limit).offset(skip).getMany();
 };

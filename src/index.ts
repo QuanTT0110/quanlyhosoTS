@@ -1,12 +1,13 @@
 import * as dotenv from "dotenv";
 import { Express } from "express";
 import express from "express";
-import errorHandle from "./Middleware/error-handle";
-import db from "./Config/data-source";
+import errorHandle from "./middleware/error-handle";
+import db from "./config/data-source";
 import morgan from "morgan";
 import router from "./Routes";
 import bodyParser from "body-parser";
 import cors from "cors";
+
 async function main() {
   const app: Express = express();
 

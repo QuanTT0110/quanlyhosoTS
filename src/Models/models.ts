@@ -1,4 +1,4 @@
-import Staff  from "../Entities/staff";
+import Staff from "../entities/staff";
 
 export interface ICreateStaff {
   name: string;
@@ -9,6 +9,7 @@ export interface ICreateStaff {
   departmentId: string;
   auth: Staff;
 }
+
 export interface IQueryStaff {
   limit: number;
   page: number;
@@ -17,14 +18,17 @@ export interface IQueryStaff {
   departmentId: string;
   auth: Staff;
 }
+
 export interface ILogin {
   email: string;
   password: string;
 }
+
 export interface IResponse {
   data: Object;
   message: string;
 }
+
 export interface IStorageDeliveryDocument {
   id: string;
   drawerId: string;
