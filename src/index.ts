@@ -1,26 +1,34 @@
 import * as dotenv from "dotenv";
+import { Express } from "express";
 import express from "express";
-import { AppDataSource } from "./data-source";
-import errorHandle from "./Middleware/ErrorHandle";
+import errorHandle from "./middleware/error-handle";
+import db from "./config/data-source";
 import morgan from "morgan";
 import router from "./Routes";
 import bodyParser from "body-parser";
-async function main() {
-    dotenv.config();
-    AppDataSource.initialize()
-        .then(async () => {
-            const app = express();
-            app.use(bodyParser.urlencoded({ extended: true }));
-            app.use(bodyParser.json());
-            app.use(morgan("dev"));
+import cors from "cors";
 
-            app.use(router);
-            app.use(errorHandle);
-            const PORT = process.env.PORT || 5000;
-            app.listen(PORT, () => {
-                console.log("server listening on port " + PORT);
-            });
-        })
-        .catch((error) => console.log(error));
+async function main() {
+  const app: Express = express();
+
+  dotenv.config();
+
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
+  app.use(morgan("dev"));
+  app.use(cors());
+
+  db.setAppDataSource(process.env);
+  db.getAppDataSource()
+    .initialize()
+    .then(() => {})
+    .catch((error) => console.log(error));
+
+  router(app);
+  app.use(errorHandle);
+  const PORT = 5000;
+  app.listen(PORT, () => {
+    console.log("server listening on port " + PORT);
+  });
 }
 main();

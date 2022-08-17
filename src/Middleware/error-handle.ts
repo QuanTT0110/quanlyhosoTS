@@ -1,12 +1,9 @@
 import { Request, Response, NextFunction, ErrorRequestHandler } from "express";
-import AppError from "./AppError";
-import responseMsg from "../Message";
-const errorHandle = (
-    error: AppError,
-    req: Request,
-    res: Response,
-    next: NextFunction
-) => {
+import AppError from "./app-error";
+import responseMsg from "../message";
+
+const errorHandle = ( error: AppError, req: Request, res: Response ) => {
+
     let statusCode = error.statusCode || 500;
     let message = error.message ? error.message : "Server error";
 
@@ -14,7 +11,9 @@ const errorHandle = (
         statusCode = 401;
         message = responseMsg.REQUIRE_TOKEN;
     }
+
     let status = String(statusCode).startsWith("4") ? "Fail" : "Error";
+    
     res.status(statusCode).json({
         status: error.status,
         message: message,
