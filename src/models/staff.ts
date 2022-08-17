@@ -1,6 +1,6 @@
 import Staff from "../entities/staff";
 
-export interface ICreateStaff {
+export interface IStaffCreatePayload {
   name: string;
   email: string;
   password: string;
@@ -10,7 +10,7 @@ export interface ICreateStaff {
   auth: Staff;
 }
 
-export interface IQueryStaff {
+export interface IStaffQueryAll {
   limit: number;
   page: number;
   keyword: string;
@@ -19,17 +19,7 @@ export interface IQueryStaff {
   auth: Staff;
 }
 
-export interface ILogin {
-  email: string;
-  password: string;
-}
-
 export interface IResponse {
   data: Object;
   message: string;
-}
-
-export interface IStorageDeliveryDocument {
-  id: string;
-  drawerId: string;
 }

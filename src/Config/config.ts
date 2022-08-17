@@ -1,3 +1,3 @@
 export default {
-    jwtSecret: "trantrungquantk123",
-}
+  jwtSecret: "trantrungquantk123",
+};

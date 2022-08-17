@@ -4,7 +4,7 @@ import express from "express";
 import errorHandle from "./middleware/error-handle";
 import db from "./config/data-source";
 import morgan from "morgan";
-import router from "./Routes";
+import router from "./routes";
 import bodyParser from "body-parser";
 import cors from "cors";
 

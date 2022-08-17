@@ -1,28 +1,28 @@
 import { DataSource } from "typeorm";
-import Staff from "../entities/staff"
+import Staff from "../entities/staff";
 
-export default class db {
-    private static appDataSource : DataSource
+let db: DataSource;
 
-    static setAppDataSource = (env: NodeJS.ProcessEnv) => {
-        this.appDataSource = new DataSource({
-            type: "postgres",
-            host: "localhost",
-            port: 5432,
-            username: "macbook",
-            password: "1206",
-            database: "quanlystaff",
-            synchronize: true,
-            logging: false,
-            entities: [Staff],
-        });
-    }
+const setAppDataSource = (env: NodeJS.ProcessEnv) => {
+  db = new DataSource({
+    type: "postgres",
+    host: "localhost",
+    port: 5432,
+    username: "macbook",
+    password: "1206",
+    database: "quanlystaff",
+    synchronize: true,
+    logging: false,
+    entities: [Staff],
+  });
+};
 
-    static getAppDataSource = () => {
-        return this.appDataSource;
-    };
+const getAppDataSource = () => {
+  return db;
+};
 
-    static getStaffRepository = () => {
-        return this.appDataSource.getRepository(Staff);
-    }
-}
+const getStaffRepository = () => {
+  return db.getRepository(Staff);
+};
+
+export default { setAppDataSource, getAppDataSource, getStaffRepository };
