@@ -1,7 +1,7 @@
 import { Entity, Column, JoinColumn, ManyToOne, OneToMany } from "typeorm";
 import BaseModel from "./Base";
-import Inventory from "./Inventories";
-import Drawer from "./Drawers"
+import Inventory from "./inventories";
+import Drawer from "./drawers"
 
 @Entity("Cabinet")
 export default class Cabinet extends BaseModel {

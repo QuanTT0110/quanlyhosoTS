@@ -1,9 +1,9 @@
 import * as dotenv from "dotenv";
 import express from "express";
 import { AppDataSource } from "./data-source";
-import errorHandle from "./Middleware/ErrorHandle";
+import errorHandle from "./middleware/error-handle";
 import morgan from "morgan";
-import router from "./Routes";
+import router from "./routes";
 import bodyParser from "body-parser";
 async function main() {
     dotenv.config();

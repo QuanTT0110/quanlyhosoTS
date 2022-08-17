@@ -7,8 +7,8 @@ import {
     UpdateDateColumn,
 } from "typeorm";
 import BaseModel from "./Base";
-import Drawer from "./Drawers";
-import Staff from "./Staffs";
+import Drawer from "./drawers";
+import Staff from "./staffs";
 
 @Entity("Document")
 export default class Document extends BaseModel {
