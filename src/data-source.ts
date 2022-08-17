@@ -5,7 +5,7 @@ import { Company,
     Document,
     Drawer,
     Inventory,
-    Staff } from "./Entities/index"
+    Staff } from "./entities/index"
 
 export const AppDataSource = new DataSource({
     type: "postgres",

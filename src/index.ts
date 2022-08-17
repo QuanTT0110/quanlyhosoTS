@@ -5,8 +5,11 @@ import errorHandle from "./middleware/error-handle";
 import morgan from "morgan";
 import router from "./routes";
 import bodyParser from "body-parser";
+
 async function main() {
+    
     dotenv.config();
+
     AppDataSource.initialize()
         .then(async () => {
             const app = express();
@@ -23,4 +26,5 @@ async function main() {
         })
         .catch((error) => console.log(error));
 }
+
 main();

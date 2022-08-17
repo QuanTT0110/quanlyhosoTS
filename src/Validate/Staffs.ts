@@ -7,12 +7,15 @@ const checkUUIDParamsAndRequest = buildCheckFunction([
     "query",
     "params",
 ]);
+
 const checkQuery = buildCheckFunction(["query"]);
 const checkBody = buildCheckFunction(["body"]);
 
 export const isUUID = async (req: Request, res: Response, next: NextFunction) => {
     await checkUUIDParamsAndRequest("id").isUUID().run(req);
+
     const result = validationResult(req);
+    
     if (!result.isEmpty()) {
         const error = new AppError(403, responseMsg.INVALID_INPUT);
         return next(error);
@@ -36,6 +39,7 @@ export const createStaff = async (req: Request, res: Response, next: NextFunctio
     await checkBody(["active", "isRoot"]).isBoolean().run(req);
 
     const result = validationResult(req);
+    
     if (!result.isEmpty()) {
         const error = new AppError(403, responseMsg.INVALID_INPUT);
         return next(error);

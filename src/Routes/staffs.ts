@@ -1,6 +1,6 @@
 import * as express from "express";
 import StaffController from "../controllers/staffs";
-import { auth } from "../Middleware/auth";
+import { auth } from "../middleware/auth";
 import * as validate from "../validate/staffs";
 const router = express.Router();
 // router.use(auth);
